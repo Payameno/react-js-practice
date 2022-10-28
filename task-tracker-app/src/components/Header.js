@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useLocation } from 'react-router';
 import Button from './Button';
 
 const secondTitle = 'Second Title';
@@ -11,11 +12,12 @@ const secondTitle = 'Second Title';
 // <h1 style={secondHeaderStyle}>{secondTitle}</h1>
 
 const Header = ({ title, onAdd, showAdd }) => {
+  const location = useLocation();
 
 return (
     <header className='header'>
       <h1 style={{color: 'red'}}>{title}</h1>
-      <Button color={showAdd ? 'red' : 'green'} text={showAdd ? 'Close' : 'Add'} onClick={onAdd} />
+      {location.pathname === '/' && <Button color={showAdd ? 'red' : 'green'} text={showAdd ? 'Close' : 'Add'} onClick={onAdd} />}
     </header>
   )
 }
