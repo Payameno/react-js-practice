@@ -10,16 +10,12 @@ const secondTitle = 'Second Title';
 //line below goes inside the return
 // <h1 style={secondHeaderStyle}>{secondTitle}</h1>
 
-const Header = ({ title }) => {
+const Header = ({ title, onAdd, showAdd }) => {
 
-  const onClick = () => {
-    console.log('Click');
-  }
-
-  return (
+return (
     <header className='header'>
-      <h1 style={{color: 'red', backgroundColor: 'black'}}>{title}</h1>
-      <Button color='green' text='Add' onClick={onClick} />
+      <h1 style={{color: 'red'}}>{title}</h1>
+      <Button color={showAdd ? 'red' : 'green'} text={showAdd ? 'Close' : 'Add'} onClick={onAdd} />
     </header>
   )
 }
